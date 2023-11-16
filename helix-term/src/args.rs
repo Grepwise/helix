@@ -3,7 +3,7 @@ use helix_core::Position;
 use helix_view::tree::Layout;
 use std::path::{Path, PathBuf};
 
-#[derive(Default)]
+#[derive(Default, Debug)]
 pub struct Args {
     pub display_help: bool,
     pub display_version: bool,

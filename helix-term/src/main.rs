@@ -7,7 +7,6 @@ use helix_term::config::{Config, ConfigLoadError};
 
 fn setup_logging(verbosity: u64) -> Result<()> {
     let mut base_config = fern::Dispatch::new();
-
     base_config = match verbosity {
         0 => base_config.level(log::LevelFilter::Warn),
         1 => base_config.level(log::LevelFilter::Info),
@@ -77,7 +76,7 @@ FLAGS:
     );
 
     let mut args = Args::parse_args().context("could not parse arguments")?;
-
+    log::info!("args: {:?}", args);
     helix_loader::initialize_config_file(args.config_file.clone());
     helix_loader::initialize_log_file(args.log_file.clone());
 
